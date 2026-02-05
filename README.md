@@ -18,7 +18,8 @@ A clean, responsive, and interactive **Hospital Management Dashboard** designed 
 - Chart.js
 
 ## 📸 Preview
-(Add screenshots here)
+<img width="1807" height="852" alt="image" src="https://github.com/user-attachments/assets/76a4b722-3c77-4d6b-9f57-08f573a7ef70" />
+<img width="1801" height="847" alt="image" src="https://github.com/user-attachments/assets/0e71aef8-3b8d-4c1a-91e4-1cf8715c1b4f" />
 
 ## 📂 Project Structure
 hospital-dashboard/
