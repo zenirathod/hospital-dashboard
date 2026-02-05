@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hospital Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h2 class="logo">MediCare</h2>
+    <nav>
+      <a class="active">Dashboard</a>
+      <a>Appointments</a>
+      <a>Queue</a>
+      <a>Doctors</a>
+      <a>Patients</a>
+      <a>Reports</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <!-- TOP BAR -->
+      <div class="topbar">
+        <div>
+          <h2 id="pageTitle">Hospital Dashboard</h2>
+          <p id="liveDateTime"></p>
+        </div>
+        <div class="weather">
+          <p>🌤️ 29°C</p>
+          <span>Mumbai, India</span>
+        </div>
+      </div>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page active">
+      <h1>Hospital Dashboard</h1>
+
+      <section class="cards">
+        <div class="card"><span>Appointments</span><p>42</p></div>
+        <div class="card"><span>Queue</span><p>18</p></div>
+        <div class="card"><span>Doctors Available</span><p>7</p></div>
+        <div class="card emergency"><span>Emergency</span><p>3</p></div>
+      </section>
+
+      <div class="chart-box small-chart">
+        <h3>Appointments per Day</h3>
+        <canvas id="appointmentsChart"></canvas>
+        <ul class="info">
+          <li>Peak appointments on Thursday</li>
+          <li>Lower traffic on weekends</li>
+          <li>Used for OPD staff planning</li>
+        </ul>
+      </div>
+
+      <div class="chart-box small-chart">
+        <h3>Queue Status</h3>
+        <canvas id="queueChart"></canvas>
+        <ul class="info">
+          <li>Most patients are already served</li>
+          <li>Queue system reduces waiting time</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- APPOINTMENTS -->
+    <section id="appointments" class="page">
+      <h1>Appointments</h1>
+
+      <table>
+        <tr><th>Patient</th><th>Age</th><th>Doctor</th><th>Department</th><th>Status</th></tr>
+        <tr><td>Rahul Sharma</td><td>32</td><td>Dr. Mehta</td><td>Cardiology</td><td>Completed</td></tr>
+        <tr><td>Anita Patel</td><td>45</td><td>Dr. Singh</td><td>Orthopedic</td><td>Pending</td></tr>
+        <tr><td>Arjun Verma</td><td>29</td><td>Dr. Rao</td><td>Neurology</td><td>Completed</td></tr>
+      </table>
+
+      <div class="chart-box small-chart">
+        <h3>Appointment Types</h3>
+        <canvas id="appointmentsTypeChart"></canvas>
+      </div>
+    </section>
+
+    <!-- QUEUE -->
+    <section id="queue" class="page">
+      <h1>Queue Management</h1>
+
+      <table>
+        <tr><th>Token</th><th>Name</th><th>Age</th><th>Issue</th><th>Status</th></tr>
+        <tr><td>Q01</td><td>Neha</td><td>26</td><td>Fever</td><td>Waiting</td></tr>
+        <tr><td>Q02</td><td>Ramesh</td><td>54</td><td>BP</td><td>In Progress</td></tr>
+        <tr><td>Q03</td><td>Sameer</td><td>40</td><td>Back Pain</td><td>Waiting</td></tr>
+        <tr><td>Q04</td><td>Pooja</td><td>30</td><td>Cold</td><td>Completed</td></tr>
+        <tr><td>Q05</td><td>Sunita</td><td>60</td><td>Diabetes</td><td>Waiting</td></tr>
+      </table>
+
+      <div class="chart-box small-chart">
+        <h3>Average Waiting Time</h3>
+        <canvas id="waitingTimeChart"></canvas>
+      </div>
+    </section>
+
+    <!-- DOCTORS -->
+    <section id="doctors" class="page">
+      <h1>Doctors Information</h1>
+
+      <table>
+        <tr><th>Name</th><th>Age</th><th>Qualification</th><th>Specialization</th><th>OPD Time</th></tr>
+        <tr><td>Dr. A. Mehta</td><td>45</td><td>MBBS, MD</td><td>Cardiology</td><td>10AM – 2PM</td></tr>
+        <tr><td>Dr. S. Singh</td><td>50</td><td>MBBS, MS</td><td>Orthopedic</td><td>1PM – 5PM</td></tr>
+        <tr><td>Dr. R. Rao</td><td>42</td><td>MBBS, DM</td><td>Neurology</td><td>9AM – 1PM</td></tr>
+      </table>
+
+      <div class="chart-box small-chart">
+        <h3>Doctors by Department</h3>
+        <canvas id="doctorDeptChart"></canvas>
+      </div>
+    </section>
+
+    <!-- PATIENTS -->
+    <section id="patients" class="page">
+      <h1>Patient Records</h1>
+
+      <table>
+        <tr><th>ID</th><th>Name</th><th>Age</th><th>Condition</th><th>Status</th></tr>
+        <tr><td>P101</td><td>Amit</td><td>35</td><td>Stable</td><td>Admitted</td></tr>
+        <tr><td>P102</td><td>Kiran</td><td>60</td><td>Critical</td><td>ICU</td></tr>
+        <tr><td>P103</td><td>Riya</td><td>22</td><td>Recovering</td><td>Discharged</td></tr>
+      </table>
+
+      <div class="chart-box small-chart">
+        <h3>Patient Condition</h3>
+        <canvas id="patientConditionChart"></canvas>
+      </div>
+    </section>
+
+    <!-- REPORTS -->
+    <section id="reports" class="page">
+      <h1>Reports & Analysis</h1>
+
+      <ul class="info">
+        <li>Average waiting time reduced by 18%</li>
+        <li>High success rate in OPD treatments</li>
+        <li>Emergency handling efficiency improved</li>
+      </ul>
+
+      <div class="chart-box small-chart">
+        <h3>Monthly Patient Trend</h3>
+        <canvas id="monthlyReportChart"></canvas>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
